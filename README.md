@@ -24,6 +24,8 @@ After you have created the token, you can use it to use this GitHub Action.
 This minimal example adds a new workflow to your repository that you can use to remove all the BOT notification on your inbox.
 This simple workflow can be triggered by a `curl` command or a chron job: it is a matter of your choice!
 
+Create a `notification-remover.yml` file in your repository.
+
 ```yml
 name: notification-remover
 
@@ -42,12 +44,15 @@ jobs:
 Than you will be able to trigger the workflow by a `curl` command:
 
 ```sh
+# https://docs.github.com/rest/reference/actions#create-a-workflow-dispatch-event
 curl -X POST \
   -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token {user_token}" \
-  https://api.github.com/repos/{owner}/{reponame}/actions/workflows/notification-remover/dispatches \
+  -H "Authorization: token {workflow_user_token}" \
+  https://api.github.com/repos/{owner}/{reponame}/actions/workflows/notification-remover.yml/dispatches \
   -d '{"ref":"main"}'
 ```
+
+> Note that the `workflow_user_token` is a new GitHub Personal Access Token with the `workflow` permission.
 
 A more complete workflow can be as follow:
 
