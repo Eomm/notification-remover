@@ -8833,7 +8833,7 @@ async function run () {
     //  - is it a PR from dependabot?
     //  - is it a PR open or closed?
     const pulls = setAsRead.map(u.getPullRequestCoordinates)
-    const pullsDetails = await client.getPullRequests(pulls)
+    const pullsDetails = await client.readPullRequests(pulls)
 
     const skip = pullsDetails
       .filter(pr => !u.isDependabotAuthor(pr)) // skip PRs not from dependabot
