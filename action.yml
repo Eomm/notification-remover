@@ -1,0 +1,20 @@
+name: 'Notification Remover'
+description: 'Clean your inbox notification, on the go, when you need!'
+inputs:
+  github-user-token:
+    description: The personal user secret token to read the notifications
+    required: true
+  days-ago:
+    description: Read the notifications back in the past.
+    required: false
+    default: 5
+  pr-state:
+    description: The PR status to filter out [open, closed, all]
+    required: false
+    default: 'closed'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: bell-off
+  color: red

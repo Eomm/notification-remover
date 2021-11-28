@@ -1,0 +1,46 @@
+{
+  "name": "notification-remover",
+  "version": "1.0.0",
+  "description": "Clean your inbox notification, on the go, when you need!",
+  "main": "index.js",
+  "scripts": {
+    "lint:fix": "standard --fix",
+    "lint": "standard",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "test": "npm run lint && tap test/*.test.js",
+    "all": "npm run lint && npm run prepare && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eomm/notification-remover.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Notification",
+    "Clean",
+    "Automation"
+  ],
+  "author": "Manuel Spigolon <behemoth89@gmail.com> (https://github.com/Eomm)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eomm/notification-remover/issues"
+  },
+  "homepage": "https://github.com/Eomm/notification-remover#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^5.0.0",
+    "p-map": "^4.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "**/node_modules/**",
+      "**/dist/**"
+    ]
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.31.1",
+    "tap": "^15.0.0",
+    "standard": "^16.0.4"
+  }
+}
