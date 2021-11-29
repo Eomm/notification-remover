@@ -29,9 +29,10 @@ async function run () {
     //  - is it a PR from dependabot?
     //  - is it a PR open or closed?
     const pulls = setAsRead.map(u.getPullRequestCoordinates)
-    const pullsDetails = await client.getPullRequests(pulls)
+    const pullsDetails = await client.readPullRequests(pulls)
 
     const skip = pullsDetails
+      .filter(pr => pr) // skip empty PRs: it will be set as read
       .filter(pr => !u.isDependabotAuthor(pr)) // skip PRs not from dependabot
       .filter(pr => u.isPullRequestState(pr, prState)) // skip PRs not in the defined state
       .map(pr => pr.url)
