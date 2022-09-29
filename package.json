@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Eomm/notification-remover#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.10.0",
     "@actions/github": "^5.0.0",
     "p-map": "^4.0.0"
   },
