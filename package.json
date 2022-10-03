@@ -29,7 +29,7 @@
   "homepage": "https://github.com/Eomm/notification-remover#readme",
   "dependencies": {
     "@actions/core": "^1.2.5",
-    "@actions/github": "^5.0.0",
+    "@actions/github": "^5.1.1",
     "p-map": "^4.0.0"
   },
   "standard": {
